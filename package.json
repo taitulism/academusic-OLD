@@ -1,0 +1,19 @@
+{
+  "name": "academusic",
+  "version": "0.0.0",
+  "description": "Music Theory Course (Hebrew)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/taitulism/academusic.git"
+  },
+  "author": "Itai Tenenbaum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taitulism/academusic/issues"
+  },
+  "homepage": "https://github.com/taitulism/academusic#readme"
+}

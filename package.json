@@ -4,7 +4,8 @@
   "description": "Music Theory Course (Hebrew)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/taitulism/academusic#readme",
   "dependencies": {
     "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
   }
 }

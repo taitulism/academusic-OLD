@@ -7,43 +7,23 @@ const pageData = {
 	keywords: ['a','b','c']
 };
 
-const masterLayoutPath = './master-layout/layout.ejs';
-const masterIndexPath = './master.ejs';
-const publicIndexPath = './public/html/index.html';
-
-console.log('Creating master layout...');
-
-function copyToPublic () {
-	console.log('Copying to public...');
-
-	fs.readFile(masterIndexPath, (readErr, content) => {
-		if (readErr) {
-			throw readErr;
-		}
-
-		fs.writeFile(publicIndexPath, content, (writeErr) => {
-			if (writeErr) {
-				throw writeErr;
-			}
-
-			console.log('  - Done - OK');
-		});
-	});
-}
+const masterTemplatePath = './master.ejs';
+const masterLayoutPath   = './master-layout/layout.ejs';
 
 function buildMaster () {
+	console.log('Creating master layout...');
+
 	ejs.renderFile(masterLayoutPath, pageData, (renderErr, template) => {
 		if (renderErr) {
 			throw renderErr;
 		}
 
-		fs.writeFile(masterIndexPath, template, function (writeErr) {
+		fs.writeFile(masterTemplatePath, template, function (writeErr) {
 			if (writeErr) {
 				throw writeErr;
 			}
 
 			console.log('  - Done - OK');
-			copyToPublic()
 		});
 	});
 }

@@ -4,7 +4,7 @@
   "description": "Music Theory Course (Hebrew)",
   "main": "index.js",
   "scripts": {
-    "build": "node build-master.js && node index.js",
+    "build": "node build-master.js && node build-pages.js && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint index.js"
   },

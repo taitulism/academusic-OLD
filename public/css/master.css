@@ -1,0 +1,47 @@
+body {
+	background: url("../img/bg.png") repeat scroll 0 140px #E1DEEF;
+	font-family: arial, verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+#body-container {
+	overflow: hidden;
+	margin-top: -43px;
+}
+
+header {
+	background: url("../img/hdr_bg.png") repeat-x scroll 0 0 #494C70;
+	border-bottom: 2px solid #868389;
+	color: white;
+	height: 158px;
+	padding-top: 22px;
+}
+
+#header-center {
+	margin: 0 auto;
+	overflow: hidden;
+	width: 850px;
+	height: 100%;
+}
+
+#home {
+	display: block;
+	margin: auto;
+	text-decoration: none;
+	text-shadow: 1px 1px 16px white;
+	width: 400px;
+}
+
+#logo {
+	background: url("../img/logo.png") no-repeat scroll center center transparent;
+	color: #D0A321;
+	font-size: 19px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	height: 40px;
+	margin: 0 auto;
+	padding-top: 58px;
+	text-indent: 49px;
+	width: 391px;
+}

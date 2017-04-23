@@ -1,0 +1,70 @@
+#mid #page form {
+    margin-right: 10px;
+}
+#mid #page form #email {
+    background-color: #292C4A;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 3px 3px 3px black;
+    color: white;
+    float: left;
+    font-size: 95%;
+    line-height: 150%;
+    padding: 10px;
+}
+#mid #page form legend {
+    border-bottom: 2px dotted #E1DEEF	
+    font-size: 110%;
+    font-weight: bold;
+}
+#mid #page form input {
+    border: 1px solid #E1DEEF;
+    border-radius: 26px 6px 6px 6px;
+    color: black;
+    font-size: 11px;
+    height: 20px;
+    margin-left: 12px;
+    width: 170px;
+}
+#mid #page form textarea {
+    border: 1px solid #E1DEEF;
+    border-radius: 26px 6px 6px 6px;
+    margin-left: 12px;
+    padding: 10px 6px 10px 10px;
+	width: 400px;
+}
+#mid #page form .button {
+    background-color: #292C4A;
+    border: 0 none;
+    border-radius: 26px 6px 6px 3px;
+    box-shadow: 2px 2px 2px black;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 10px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    width: 60px;
+}
+#mid #page form .button:hover {
+    background-color: #333653;
+    box-shadow: none;
+    text-shadow: 0 0 8px #FFFFFF;
+}
+#mid #page form .button:active {
+    box-shadow: none;
+    text-shadow: none;
+}
+#mid #page form .errorField {
+    color: red;
+}
+#mid #page form #msgSent {
+    float: right;
+    padding-top: 4px;
+}
+#mid #page form #msgSent #contactUserName {
+    background-color: #E1DEEF;
+    border-radius: 6px 6px 6px 6px;
+    color: #292C4A;
+    font-weight: bold;
+    padding: 3px 8px;
+}

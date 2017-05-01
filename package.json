@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node build-master.js && node build-pages.js && node index.js",
+    "dev": "node build/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint index.js"
   },
@@ -23,6 +24,7 @@
     "express": "^4.15.2"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": "^3.19.0",
+    "rimraf": "^2.6.1"
   }
 }

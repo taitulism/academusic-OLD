@@ -30,7 +30,7 @@ app.get('/getView/:view', function (req, res, next) {
     res.sendFile(pagePath, (err) => {
         if (err) {
             // log error: 404, date, ip, ua, referrer 
-            console.log('err', err);
+            console.log('404', req.params.view);
             res.sendFile($path.join(__dirname, 'public/html/404.html'));
         }
     });

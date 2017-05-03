@@ -13,12 +13,12 @@ function getComponent (componentName) {
 	.then((text) => {
 		if (pageContainer) {
 			pageContainer.innerHTML = text;
-			listenToLinksClick(pageContainer);
+			ajaxifyLinks(pageContainer);
 		}
 	});
 }
 
-function listenToLinksClick (elm = document) {
+function ajaxifyLinks (elm = document) {
 	const linksCollection = elm.getElementsByTagName('a');
 	const links = Array.prototype.slice.call(linksCollection, 0);
 
@@ -26,23 +26,45 @@ function listenToLinksClick (elm = document) {
 		link.addEventListener('click', (event) => {
 			event.preventDefault();
 
-			const href = link.getAttribute('href');
+			const href = event.target.getAttribute('href');
 
-			getComponent(href);
+			const page = (href[0] === '/')
+				? href.substr(1)
+				: href
+			;
+
+			getComponent(page);
+
+			window.history.pushState({page}, page, href);
 		}, false);
 	});	
 }
 
+window.onpopstate = function (stateObj) {
+	const page = (stateObj.state)
+		? stateObj.state.page
+		: 'home'
+	;
+
+	getComponent(page);
+};
+
 const viewUrl = window.location.pathname;
 
 function appStart () {
-	listenToLinksClick();
+	ajaxifyLinks();
 
-	if (viewUrl === '/' || viewUrl === '/home') {
+	if (viewUrl === '/') {
 		getComponent('home');
+		window.history.replaceState({page: '/'}, '/', '/');
 	}	
+	else if (viewUrl === '/home') {
+		getComponent('home');
+		window.history.replaceState({page: 'home'}, 'home', '/home');
+	}
 	else if (viewUrl === '/about') {
 		getComponent('about');
+		window.history.replaceState({page:'about'}, 'about', '/about');
 	}
 }
 

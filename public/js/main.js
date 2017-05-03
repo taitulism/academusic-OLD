@@ -1,7 +1,12 @@
 const pageContainer = document.getElementById('page');
 
 function getComponent (componentName) {
+	if (componentName[0] === '/') {
+		componentName = componentName.substr(1);
+	}
+
 	console.log(`/getView/${componentName}`);
+
 	fetch(`/getView/${componentName}`).then((response) => {
 		return response.text();
 	})
@@ -29,12 +34,17 @@ function listenToLinksClick (elm = document) {
 }
 
 const viewUrl = window.location.pathname;
-listenToLinksClick();
 
-if (viewUrl === '/' || viewUrl === '/home') {
-	getComponent('home');
+function appStart () {
+	listenToLinksClick();
+
+	if (viewUrl === '/' || viewUrl === '/home') {
+		getComponent('home');
+	}	
+	else if (viewUrl === '/about') {
+		getComponent('about');
+	}
 }
-else if (viewUrl === '/about') {
-	getComponent('about');
-}
+
+appStart();
 

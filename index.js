@@ -24,15 +24,20 @@ app.use((err, req, res, next) => {
 });
 
 app.get('/getView/:view', function (req, res, next) {
-    const viewPath = getPagePath(req.params.view);
+    const requestedPage = req.params.view || 'home';
+    const pagePath = getPagePath(requestedPage);
 
-    res.sendFile(viewPath, (err) => {
+    res.sendFile(pagePath, (err) => {
         if (err) {
             // log error: 404, date, ip, ua, referrer 
             console.log('err', err);
             res.sendFile($path.join(__dirname, 'public/html/404.html'));
         }
     });
+});
+
+app.get('/getView', function (req, res) {
+    res.sendFile(getPagePath('home'));
 });
 
 app.get('*', function (req, res, next) {

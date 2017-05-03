@@ -7,23 +7,31 @@ const pageData = {
 	keywords: ['a','b','c']
 };
 
-const masterTemplatePath = './master.ejs';
-const masterLayoutPath   = './master-layout/layout.ejs';
+const clean = require('./build/clean');
+
+const masterLayoutPath = './master-layout/layout.ejs';
+const masterOutputPath = './public/html/master.html';
+
 
 function buildMaster () {
-	console.log('Creating master layout...');
+	console.log('Cleaning lefovers...');
 
-	ejs.renderFile(masterLayoutPath, pageData, (renderErr, template) => {
-		if (renderErr) {
-			throw renderErr;
-		}
+	clean(() => {
+		console.log('  - done');
+		console.log('Creating master layout...');
 
-		fs.writeFile(masterTemplatePath, template, function (writeErr) {
-			if (writeErr) {
-				throw writeErr;
+		ejs.renderFile(masterLayoutPath, pageData, (renderErr, template) => {
+			if (renderErr) {
+				throw renderErr;
 			}
 
-			console.log('  - Done - OK');
+			fs.writeFile(masterOutputPath, template, function (writeErr) {
+				if (writeErr) {
+					throw writeErr;
+				}
+
+				console.log('  - done');
+			});
 		});
 	});
 }

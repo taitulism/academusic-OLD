@@ -13,20 +13,16 @@ function getComponent (componentName) {
 	.then((text) => {
 		if (pageContainer) {
 			pageContainer.innerHTML = text;
-			ajaxifyLinks(pageContainer);
 		}
 	});
 }
 
-function ajaxifyLinks (elm = document) {
-	const linksCollection = elm.getElementsByTagName('a');
-	const links = Array.prototype.slice.call(linksCollection, 0);
+function handleComponentLinks () {
+	document.addEventListener('click', (ev) => {
+		if (ev.target.dataset.componentLink) {
+			ev.preventDefault();
 
-	links.forEach((link) => {
-		link.addEventListener('click', (event) => {
-			event.preventDefault();
-
-			const href = event.target.getAttribute('href');
+			const href = ev.target.getAttribute('href');
 
 			const page = (href[0] === '/')
 				? href.substr(1)
@@ -36,8 +32,8 @@ function ajaxifyLinks (elm = document) {
 			getComponent(page);
 
 			window.history.pushState({page}, page, href);
-		}, false);
-	});	
+		}
+	});
 }
 
 window.onpopstate = function (stateObj) {
@@ -52,7 +48,7 @@ window.onpopstate = function (stateObj) {
 const viewUrl = window.location.pathname;
 
 function appStart () {
-	ajaxifyLinks();
+	handleComponentLinks();
 
 	if (viewUrl === '/') {
 		getComponent('home');

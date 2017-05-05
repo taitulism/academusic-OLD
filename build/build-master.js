@@ -9,8 +9,8 @@ const pageData = {
 
 const clean = require('./build/clean');
 
-const masterLayoutPath = './master-layout/layout.ejs';
-const masterOutputPath = './public/html/master.html';
+const masterLayoutPath = '../master-layout/layout.ejs';
+const masterOutputPath = '../public/html/master.html';
 
 
 function buildMaster () {

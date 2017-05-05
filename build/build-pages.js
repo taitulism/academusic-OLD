@@ -6,9 +6,9 @@ const {readdir, readFile, writeFile} = fs;
 
 const ejs = require('ejs');
 
-const pagesPartialsPath  = './public/html/pages-partials';
-const publicStaticPath   = './public/html/static-pages';
-const masterTemplatePath = './master.ejs';
+const pagesPartialsPath  = '../public/html/pages-partials';
+const publicStaticPath   = '../public/html/static-pages';
+const masterTemplatePath = '../master.ejs';
 
 function buildPage (page = 'home') {
 	console.log(`Creating page ${page} layout...`);

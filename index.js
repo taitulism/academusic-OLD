@@ -1,6 +1,8 @@
 const $path   = require('path');
 const express = require('express');
 
+const pagesData = require('./pages-data/pages-data');
+
 const app = express();
 
 function getPagePath (page) {
@@ -25,7 +27,12 @@ app.use((err, req, res, next) => {
 
 app.get('/getView/:view', function (req, res, next) {
     const requestedPage = req.params.view || 'home';
-    const pagePath = getPagePath(requestedPage);
+    const pagePath      = getPagePath(requestedPage);
+    const pageData      = pagesData[requestedPage];
+
+    res.setHeader('title', encodeURI(pageData.title));
+    res.setHeader('keywords', encodeURI(pageData.keywords));
+    res.setHeader('description', encodeURI(pageData.description));
 
     res.sendFile(pagePath, (err) => {
         if (err) {
